@@ -8,7 +8,7 @@ pkgdesc="A new mobile app SDK to help developers and designers build modern mobi
 arch=("x86_64")
 url="https://${pkgname}.io"
 license=("custom" "BSD" "CCPL")
-depends=("glu" "java-environment" "lib32-libglvnd")
+depends=("glu" "java-environment")
 optdepends=(
   "android-sdk"
   "android-studio"

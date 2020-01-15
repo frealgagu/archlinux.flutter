@@ -12,7 +12,6 @@ pkgbase = flutter
 	makedepends = python
 	depends = glu
 	depends = java-environment
-	depends = lib32-libglvnd
 	optdepends = android-sdk
 	optdepends = android-studio
 	optdepends = bash
