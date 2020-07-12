@@ -2,10 +2,12 @@ post_install() {
   groupadd flutterusers
   echo "The flutterusers group  has been created. Add your user to that group to use flutter command"
   chgrp -R flutterusers /opt/flutter
+  chmod -R g+w /opt/flutter
 }
 
 post_upgrade() {
   chgrp -R flutterusers /opt/flutter
+  chmod -R g+w /opt/flutter
 }
 
 post_remove() {
