@@ -11,7 +11,7 @@ _enginever=a5c24f538d05aaf66f7972fb23959d8cafb9f95a
 _materialfontsver=3012db47f3130e62f7cc0beabff968a33cbec8d8
 _gradlewver=fd5c1f2c013565a3bea56ada6df9d2b8e96d56aa
 _flutterarch=$(uname -m | sed s/aarch64/arm64/ | sed s/x86_64/x64/)
-pkgrel=17
+pkgrel=18
 pkgdesc="A new mobile app SDK to help developers and designers build modern mobile apps for iOS and Android."
 _pkgdesc="Flutter SDK component"
 arch=("x86_64" "aarch64")
@@ -19,7 +19,8 @@ url="https://${_group}.dev"
 license=("custom" "BSD" "CCPL")
 makedepends=(
 	"dart>=${_dartver[0]}"
-	"dart<${_dartver[1]}"
+	# this breaks using the aur/dart-sdk-dev package
+	# "dart<${_dartver[1]}"
 	"jq"
 	"gradle"
 	"unzip"
@@ -50,11 +51,10 @@ sha256sums=('089f924c72f28d25851382d70db83df83c64746713f6a8ca08879a1530adb8ca'
             '04531ee1732c18c933b5b28f5da88ed183d5aa3698b1d1e912c000928b93ec91'
             '1578e819b6ee479b6db7a095bcfa74372d3ff555642c6d6ea7112e97bb6f2027')
 
-# this is required in case people try to build with `aur/dart-sdk-dev` instead of `extra/dart`
-DART_BINARY=$(readlink $(which dart))
-DART_ROOT=${DART_ROOT:-${DART_BINARY/\/bin\/dart/}}
-
 prepare() {
+  # this is required in case people try to build with `aur/dart-sdk-dev` instead of `extra/dart`
+  DART_BINARY=$(readlink $(which dart))
+  DART_ROOT=${DART_ROOT:-${DART_BINARY/\/bin\/dart/}}
 
   if [ "${DART_ROOT}" != "/opt/dart-sdk" ]; then
     echo -e "\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n"
@@ -66,10 +66,15 @@ prepare() {
     echo -e "  Please consider using the original 'extra/dart' package"
     echo -e "  from the Arch Linux package repositories. We otherwise"
     echo -e "  cannot ensure the Flutter tool will work as expected.\n\n"
-    echo -e "  Dart executable:		$(which dart)"
+    echo -e "  Dart executable:	$(which dart)"
     echo -e "  Resolved Dart SDK:	${DART_ROOT}"
 
     echo -e "\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n"
+  fi
+
+  if [[ ! "$DART_ROOT" =~ ^\/opt\/ && ! "$DART_ROOT" =~ ^\/usr\/ ]]; then
+    echo "FATAL: DART_ROOT is neither in /opt nor /usr. You must use a system wide Dart installation for this package. Exiting."
+    exit 1
   fi
 
   mv "${srcdir}/${_group}-${pkgver/.hotfix/+hotfix}" "${srcdir}/${_group}"
@@ -164,7 +169,7 @@ _package-target-linux() {
 	"${_group}-tool=${pkgver}"
 	"${_group}-engine-linux=${pkgver}"
 	"dart>=${_dartver[0]}"
-	"dart<${_dartver[1]}"
+	# "dart<${_dartver[1]}"
 	"clang"
 	"cmake"
         "ninja"
@@ -233,7 +238,7 @@ _package-tool() {
 	"${_group}-common=${pkgver}"
 	# TODO: completely compile Flutter tool standalone and drop dependency
 	"dart>=${_dartver[0]}"
-	"dart<${_dartver[1]}"
+	# "dart<${_dartver[1]}"
 	# commands first
 	"bash"
 	"curl"
@@ -268,7 +273,7 @@ _package-devel() {
   depends=(
 	"${_group}-tool=${pkgver}"
 	"dart>=${_dartver[0]}"
-	"dart<${_dartver[1]}"
+	# "dart<${_dartver[1]}"
   )
   replaces=("${_group}-tool-developer")
 
@@ -290,6 +295,10 @@ _package-intellij-patch() {
         "intellij-idea-community-edition"
         "intellij-idea-ultimate-edition"
   )
+
+  # this is required in case people try to build with `aur/dart-sdk-dev` instead of `extra/dart`
+  DART_BINARY=$(readlink $(which dart))
+  DART_ROOT=${DART_ROOT:-${DART_BINARY/\/bin\/dart/}}
 
   install -dm755 "${pkgdir}/usr/lib/${_group}/bin/cache"
   

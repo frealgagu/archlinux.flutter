@@ -1,7 +1,7 @@
 pkgbase = flutter
 	pkgdesc = A new mobile app SDK to help developers and designers build modern mobile apps for iOS and Android.
 	pkgver = 3.19.4
-	pkgrel = 17
+	pkgrel = 18
 	url = https://flutter.dev
 	arch = x86_64
 	arch = aarch64
@@ -10,7 +10,6 @@ pkgbase = flutter
 	license = BSD
 	license = CCPL
 	makedepends = dart>=3.2.0
-	makedepends = dart<4.0.0
 	makedepends = jq
 	makedepends = gradle
 	makedepends = unzip
@@ -57,7 +56,6 @@ pkgname = flutter-tool
 	pkgdesc = Flutter SDK component - CLI tool (for packaging only)
 	depends = flutter-common=3.19.4
 	depends = dart>=3.2.0
-	depends = dart<4.0.0
 	depends = bash
 	depends = curl
 	depends = file
@@ -73,7 +71,6 @@ pkgname = flutter-devel
 	pkgdesc = Flutter SDK component - CLI tool (for application development)
 	depends = flutter-tool=3.19.4
 	depends = dart>=3.2.0
-	depends = dart<4.0.0
 	replaces = flutter-tool-developer
 
 pkgname = flutter-target-linux
@@ -81,7 +78,6 @@ pkgname = flutter-target-linux
 	depends = flutter-tool=3.19.4
 	depends = flutter-engine-linux=3.19.4
 	depends = dart>=3.2.0
-	depends = dart<4.0.0
 	depends = clang
 	depends = cmake
 	depends = ninja
