@@ -1,7 +1,7 @@
 pkgbase = flutter
 	pkgdesc = A new mobile app SDK to help developers and designers build modern mobile apps for iOS and Android.
 	pkgver = 3.19.4
-	pkgrel = 18
+	pkgrel = 19
 	url = https://flutter.dev
 	arch = x86_64
 	arch = aarch64
