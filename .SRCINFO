@@ -1,7 +1,7 @@
 pkgbase = flutter
 	pkgdesc = A new mobile app SDK to help developers and designers build modern mobile apps for iOS and Android.
-	pkgver = 3.19.4
-	pkgrel = 19
+	pkgver = 3.19.5
+	pkgrel = 1
 	url = https://flutter.dev
 	arch = x86_64
 	arch = aarch64
@@ -14,7 +14,7 @@ pkgbase = flutter
 	makedepends = gradle
 	makedepends = unzip
 	options = !emptydirs
-	source = flutter-3.19.4.tar.xz::https://github.com/flutter/flutter/archive/refs/tags/3.19.4.tar.gz
+	source = flutter-3.19.5.tar.xz::https://github.com/flutter/flutter/archive/refs/tags/3.19.5.tar.gz
 	source = system-dart.patch
 	source = gradle-user-home.patch
 	source = flutter.sh
@@ -23,7 +23,7 @@ pkgbase = flutter
 	source = no-runtime-download.patch
 	source = doctor.patch
 	source = opt-in-analytics.patch
-	sha256sums = 089f924c72f28d25851382d70db83df83c64746713f6a8ca08879a1530adb8ca
+	sha256sums = f9c737cbf6551ca4a68ac826131e1b71f6d173fe83da42521c8f5513c287c57d
 	sha256sums = d721fc48f534af8f804bb4a9f2cb1d304627a9f73881b3f61d829a9f1e33164f
 	sha256sums = de0d3567d83bd756841b19ccf879efc02749d8a45cf18d94cd71ec1d366c9024
 	sha256sums = ee77173114fa746624cebce1b163c92dd3d14f142c35e1a7614074b26663ecfc
@@ -35,11 +35,11 @@ pkgbase = flutter
 
 pkgname = flutter
 	pkgdesc = Flutter SDK component - full installation of development tool and runtime
-	depends = flutter-devel=3.19.4
-	depends = flutter-target-linux=3.19.4
-	depends = flutter-target-android=3.19.4
-	depends = flutter-target-web=3.19.4
-	depends = flutter-intellij-patch=3.19.4
+	depends = flutter-devel=3.19.5
+	depends = flutter-target-linux=3.19.5
+	depends = flutter-target-android=3.19.5
+	depends = flutter-target-web=3.19.5
+	depends = flutter-intellij-patch=3.19.5
 	conflicts = flutter
 
 pkgname = flutter-common
@@ -49,12 +49,12 @@ pkgname = flutter-common
 
 pkgname = flutter-gradle
 	pkgdesc = Flutter SDK component - gradle wrapper
-	provides = flutter-gradle=3.19.4
+	provides = flutter-gradle=3.19.5
 	conflicts = flutter-gradle
 
 pkgname = flutter-tool
 	pkgdesc = Flutter SDK component - CLI tool (for packaging only)
-	depends = flutter-common=3.19.4
+	depends = flutter-common=3.19.5
 	depends = dart>=3.2.0
 	depends = bash
 	depends = curl
@@ -69,14 +69,14 @@ pkgname = flutter-tool
 
 pkgname = flutter-devel
 	pkgdesc = Flutter SDK component - CLI tool (for application development)
-	depends = flutter-tool=3.19.4
+	depends = flutter-tool=3.19.5
 	depends = dart>=3.2.0
 	replaces = flutter-tool-developer
 
 pkgname = flutter-target-linux
 	pkgdesc = Flutter SDK component - linux target files
-	depends = flutter-tool=3.19.4
-	depends = flutter-engine-linux=3.19.4
+	depends = flutter-tool=3.19.5
+	depends = flutter-engine-linux=3.19.5
 	depends = dart>=3.2.0
 	depends = clang
 	depends = cmake
@@ -87,20 +87,20 @@ pkgname = flutter-target-linux
 
 pkgname = flutter-target-android
 	pkgdesc = Flutter SDK component - android target files
-	depends = flutter-tool=3.19.4
-	depends = flutter-engine-android=3.19.4
-	depends = flutter-gradle=3.19.4
+	depends = flutter-tool=3.19.5
+	depends = flutter-engine-android=3.19.5
+	depends = flutter-gradle=3.19.5
 	optdepends = android-sdk: develop for Android devices
 	optdepends = java-environment: develop for Android devices
 
 pkgname = flutter-target-web
 	pkgdesc = Flutter SDK component - web target files
-	depends = flutter-tool=3.19.4
-	depends = flutter-engine-web=3.19.4
+	depends = flutter-tool=3.19.5
+	depends = flutter-engine-web=3.19.5
 
 pkgname = flutter-intellij-patch
 	pkgdesc = Flutter SDK component - IntelliJ Flutter plugin hotfix
-	depends = flutter-common=3.19.4
+	depends = flutter-common=3.19.5
 	optdepends = android-studio
 	optdepends = intellij-idea-community-edition
 	optdepends = intellij-idea-ultimate-edition
