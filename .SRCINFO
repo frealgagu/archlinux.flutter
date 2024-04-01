@@ -53,6 +53,7 @@ pkgname = flutter-common
 	conflicts = flutter-engine-linux<3.19.5
 	conflicts = flutter-engine-web<3.19.5
 	conflicts = flutter-tool<3.19.5
+	conflicts = flutter-devel<3.19.5
 
 pkgname = flutter-gradle
 	pkgdesc = Flutter SDK component - gradle wrapper

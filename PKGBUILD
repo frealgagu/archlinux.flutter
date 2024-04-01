@@ -156,6 +156,7 @@ _package-common() {
         "${_group}-engine-linux<${pkgver}"
         "${_group}-engine-web<${pkgver}"
         "${_group}-tool<${pkgver}"
+        "${_group}-devel<${pkgver}"
   )
 
   install -Dm644 "${srcdir}/${_group}/LICENSE" "${pkgdir}/usr/share/licenses/${_group}/LICENSE"
