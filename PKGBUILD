@@ -11,7 +11,7 @@ _enginever=e76c956498841e1ab458577d3892003e553e4f3c
 _materialfontsver=3012db47f3130e62f7cc0beabff968a33cbec8d8
 _gradlewver=fd5c1f2c013565a3bea56ada6df9d2b8e96d56aa
 _flutterarch=$(uname -m | sed s/aarch64/arm64/ | sed s/x86_64/x64/)
-pkgrel=3
+pkgrel=4
 pkgdesc="A new mobile app SDK to help developers and designers build modern mobile apps for iOS and Android."
 _pkgdesc="Flutter SDK component"
 arch=("x86_64" "aarch64")
@@ -147,7 +147,7 @@ _package() {
 _package-common() {
   pkgdesc="${_pkgdesc} - common SDK files and pub cache"
   install="${_group}-common.install"
-  conflicts=("${_group}<${pkgver}" "${_group}-engine-common<${pkgver}" "${_group}-intellij-patch<${pkgver}")
+  conflicts=("${_group}<${pkgver}" "${_group}-engine-common<${pkgver}" "${_group}-intellij-patch<${pkgver}" "${_group}-gradle<${pkgver}")
 
   install -Dm644 "${srcdir}/${_group}/LICENSE" "${pkgdir}/usr/share/licenses/${_group}/LICENSE"
 
