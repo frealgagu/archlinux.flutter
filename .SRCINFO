@@ -1,7 +1,7 @@
 pkgbase = flutter
 	pkgdesc = A new mobile app SDK to help developers and designers build modern mobile apps for iOS and Android.
 	pkgver = 3.19.5
-	pkgrel = 6
+	pkgrel = 7
 	url = https://flutter.dev
 	arch = x86_64
 	arch = aarch64
@@ -52,7 +52,7 @@ pkgname = flutter-common
 	conflicts = flutter-engine-android<3.19.5
 	conflicts = flutter-engine-linux<3.19.5
 	conflicts = flutter-engine-web<3.19.5
-	conflicts = flutter-common<3.19.5
+	conflicts = flutter-tool<3.19.5
 
 pkgname = flutter-gradle
 	pkgdesc = Flutter SDK component - gradle wrapper
