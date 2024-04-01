@@ -1,7 +1,7 @@
 pkgbase = flutter
 	pkgdesc = A new mobile app SDK to help developers and designers build modern mobile apps for iOS and Android.
 	pkgver = 3.19.5
-	pkgrel = 2
+	pkgrel = 3
 	url = https://flutter.dev
 	arch = x86_64
 	arch = aarch64
@@ -45,12 +45,15 @@ pkgname = flutter
 pkgname = flutter-common
 	pkgdesc = Flutter SDK component - common SDK files and pub cache
 	install = flutter-common.install
-	conflicts = flutter<=3.19.3
+	conflicts = flutter<3.19.5
+	conflicts = flutter-engine-common<3.19.5
+	conflicts = flutter-intellij-patch<3.19.5
 
 pkgname = flutter-gradle
 	pkgdesc = Flutter SDK component - gradle wrapper
 	provides = flutter-gradle=3.19.5
 	conflicts = flutter-gradle
+	conflicts = flutter-target-android<3.19.5
 
 pkgname = flutter-tool
 	pkgdesc = Flutter SDK component - CLI tool (for packaging only)
@@ -66,11 +69,16 @@ pkgname = flutter-tool
 	depends = xz
 	depends = zip
 	depends = glu
+	conflicts = flutter-devel<3.19.5
+	conflicts = flutter-target-android<3.19.5
+	conflicts = flutter-target-linux<3.19.5
+	conflicts = flutter-target-web<3.19.5
 
 pkgname = flutter-devel
 	pkgdesc = Flutter SDK component - CLI tool (for application development)
 	depends = flutter-tool=3.19.5
 	depends = dart>=3.2.0
+	conflicts = flutter<3.19.5
 	replaces = flutter-tool-developer
 
 pkgname = flutter-target-linux
